@@ -1,0 +1,27 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  VERSION: 2.0.1
+
+clojure-tests:
+  stage: test
+  script: "echo TEST"
+  only:
+    - master
+
+clojure-build-image:
+  stage: build
+  script: "docker build -t registry.gitlab.com/murcielago13ua/clojure-hello-world:${VERSION} ."
+  only:
+    - master
+
+deploy-service:
+  stage: deploy
+  script: "echo ANSIBLE PLAYBOOK INVOCATION"
+  only:
+    - master
+
+
