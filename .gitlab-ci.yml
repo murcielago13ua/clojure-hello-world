@@ -14,6 +14,8 @@ clojure-tests:
 
 clojure-build-image:
   stage: build
+  tags:
+    - mabat-main
   script:
     - "docker build -t clojure-hello-world:${VERSION} ."
     - "docker run -d --name clojure-hello-world -p 5001:5000  clojure-hello-world:${VERSION}"
