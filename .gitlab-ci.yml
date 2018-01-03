@@ -1,0 +1,29 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  VERSION: 2.0.1
+
+clojure-tests:
+  stage: test
+  script: "echo TEST"
+  only:
+    - master
+
+clojure-build-image:
+  stage: build
+  script:
+    - "docker build -t clojure-hello-world:${VERSION} ."
+    - "docker run -d --name clojure-hello-world -p 5000:5000  clojure-hello-world:${VERSION}"
+  only:
+    - master
+
+deploy-service:
+  stage: deploy
+  script: "echo ANSIBLE PLAYBOOK INVOCATION"
+  only:
+    - master
+
+
