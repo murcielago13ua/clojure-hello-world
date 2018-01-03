@@ -1,0 +1,6 @@
+target/
+CHANGELOG.md
+clojure-docker.iml
+.idea/
+LICENSE
+README.md
