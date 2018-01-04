@@ -5,3 +5,7 @@
 (deftest a-test
   (testing "FIXED"
     (is (= 1 1))))
+
+(deftest b-test
+  (testing "Can fail"
+    (is (= 0 1))))
