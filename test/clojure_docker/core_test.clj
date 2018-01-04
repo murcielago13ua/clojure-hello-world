@@ -3,5 +3,9 @@
             [clojure-docker.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
+  (testing "FIXED"
+    (is (= 1 1))))
+
+(deftest b-test
+  (testing "Can fail"
     (is (= 0 1))))
